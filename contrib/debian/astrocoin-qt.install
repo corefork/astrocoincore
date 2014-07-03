@@ -1,0 +1,6 @@
+astrocoin-qt usr/bin
+share/pixmaps/astrocoin32.xpm usr/share/pixmaps
+share/pixmaps/astrocoin16.xpm usr/share/pixmaps
+share/pixmaps/astrocoin128.png usr/share/pixmaps
+debian/astrocoin-qt.desktop usr/share/applications
+debian/astrocoin-qt.protocol usr/share/kde4/services/

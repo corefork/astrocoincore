@@ -1,0 +1,5 @@
+Building AstroCoin
+
+See doc/build-*.md for instructions on building astrocoind,
+the intended-for-services, no-graphical-interface, reference
+implementation of AstroCoin.

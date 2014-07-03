@@ -1,0 +1,33 @@
+#!/usr/bin/make -f
+# -*- mode: makefile; coding: utf-8 -*-
+
+#DEB_MAKE_CHECK_TARGET = test_astrocoin
+#build/astrocoind::
+#	$(if $(filter nocheck,$(DEB_BUILD_OPTIONS)),,src/test_astrocoin)
+
+DEB_INSTALL_EXAMPLES_astrocoind += debian/examples/*
+DEB_INSTALL_MANPAGES_astrocoind += debian/manpages/*
+
+%:
+	dh --with bash-completion $@
+
+override_dh_auto_build:
+	cd src; $(MAKE) -f makefile.unix astrocoind
+	$(MAKE)
+
+override_dh_auto_clean:
+	if [ -f Makefile ]; then $(MAKE) clean; else rm -rf build/; rm -f astrocoin-qt; fi
+	cd src; $(MAKE) -f makefile.unix clean
+
+override_dh_auto_configure:
+	qmake astrocoin-qt.pro USE_QRCODE=1
+
+override_dh_auto_test:
+	cd src; $(MAKE) -f makefile.unix test_astrocoin
+	src/test_astrocoin
+
+# Ensure wrapper is set executable
+binary-post-install/astrocoind:
+	chmod +x $(cdbs_curdestdir)usr/bin/astrocoind
+binary-post-install/astrocoin-qt:
+	chmod +x $(cdbs_curdestdir)usr/bin/astrocoin-qt

@@ -1,0 +1,12 @@
+[Desktop Entry]
+Encoding=UTF-8
+Name=AstroCoin
+Comment=AstroCoin P2P Cryptocurrency
+Comment[fr]=AstroCoin, monnaie virtuelle cryptographique pair à pair
+Comment[tr]=AstroCoin, eşten eşe kriptografik sanal para birimi
+Exec=astrocoin-qt %u
+Terminal=false
+Type=Application
+Icon=astrocoin128
+MimeType=x-scheme-handler/astrocoin;
+Categories=Office;Finance;
